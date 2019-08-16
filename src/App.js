@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Table from './components/Table';
+import HeaderComponent from "./components/HeaderComponent"
+import MainHighlight from "./components/MainHighlight.js"
 
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="App">
+      <HeaderComponent />
+
+      <div >
+
+        <div className="container">
+          <Router>
+            <Route exact path='/MainHighlight/:string' component={MainHighlight}></Route>
+            <Route exact path="/" component={Table}></Route>
+          </Router>
+        </div>
+      </div>
     </div>
   );
 }
